@@ -1,0 +1,24 @@
+.vscode
+
+# OS / editor
+.DS_Store
+.ipynb_checkpoints/
+
+# LaTeX build artifacts
+Documentation/build/
+Documentation/*.aux
+Documentation/*.log
+Documentation/*.out
+Documentation/*.toc
+Documentation/*.lof
+Documentation/*.lot
+Documentation/*.fls
+Documentation/*.fdb_latexmk
+Documentation/*.synctex.gz
+Documentation/*.blg
+Documentation/*.bbl
+Documentation/*.bcf
+Documentation/*.run.xml
+Documentation/*.nav
+Documentation/*.snm
+Documentation/*.vrb

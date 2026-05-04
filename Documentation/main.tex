@@ -1,0 +1,96 @@
+% !TeX program = xelatex
+\documentclass[paper=a4,oneside,abstract,parskip=half]{scrartcl}
+
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage{graphicx}
+\usepackage{csquotes}
+\usepackage{booktabs}
+\usepackage{siunitx}
+\sisetup{separate-uncertainty = true,locale=DE}
+\usepackage{placeins}
+\usepackage{xcolor}
+\definecolor{mygreen}{RGB}{34,139,34}
+\usepackage{amsmath}
+\usepackage[backend=biber,
+date=long,
+style=iso-numeric,
+autolang=other,
+%bibencoding=UTF8
+]{biblatex}
+
+\DeclareFieldFormat{labelnumberwidth}{[#1]}
+\setcounter{biburllcpenalty}{7000}
+\setcounter{biburlucpenalty}{8000}
+
+\usepackage[hidelinks]{hyperref}
+
+% Figure lookup order:
+% 1) local documentation assets
+% 2) analysis exports
+% 3) raw/shared data figures
+\graphicspath{{figures/}{../Analysis/exports/figures/}{../Data/figures/}{../Data/raw}{../Data/tables}}
+
+\addbibresource{bib/myLibrary.bib}
+
+\title{Verzögerungszeit eines 74HC00 NAND Gatters}
+\subject{Messbericht}
+\titlehead{}
+\author{Your name and everybody else}
+\date{Messung: 9. und 16. April 2026 / Bericht: 20. April 2026}
+
+\begin{document}
+\shorthandoff{"}
+\maketitle
+\begin{abstract}
+\noindent 
+
+\noindent For template purposes, different kinds of text, tables and figures are present here. Feel free to change anything. First of all, change the language to your liking.
+
+\end{abstract}
+
+\FloatBarrier
+
+\section{Messung der Verzögerungszeit}
+Die Verzögerungszeit wird zwischen Eingang und Ausgang der Schaltung bei 50 Prozent des Highpegels gemessen. Der Highpegel am Eingang wird auf die Betriebsspannung gesetzt. 
+
+\begin{figure}[!htb]
+\begin{center}
+\includegraphics[width=0.5\textwidth]{
+Verzoegerungszeit.png
+}
+\end{center}
+\caption{Definition der Verzögerungszeiten aus dem Datenblatt des IC \protect\cite[Figure 7-2]{SNx4HC00}}
+\label{fig:messprinzip}
+\end{figure}
+In Abbildung \ref{fig:messprinzip} aus dem Datenblatt ist dargestellt wie die Verzögerungszeiten $t_{\textrm{pLH}}$ und $t_{\textrm{pHL}}$ definiert sind \cite[Figure 7-2]{SNx4HC00}.
+\FloatBarrier
+
+\begin{table}
+\centering
+\begin{tabular}{S S S S}
+\hline
+{$t_{\mathrm{pLH}}$ bei \SI{2}{\volt}} &
+{$t_{\mathrm{pHL}}$ bei \SI{2}{\volt}} &
+{$t_r$ bei \SI{2}{\volt}} &
+{$t_f$ bei \SI{2}{\volt}} \\
+\hline
+\SI{258,6}{\ns} & \SI{257,8}{\ns} & \SI{17,2}{\ns} & \SI{19,1}{\ns} \\
+\hline
+\end{tabular}
+\caption{Messwerte der Verzögerungszeit bei \SI{2}{\volt}}
+\label{tab:messwerte2v}
+\end{table}
+
+\newpage
+
+\section{Messung mit 5,5 Volt Betriebsspannung}
+\FloatBarrier
+
+Die Betriebsspannung wurde auf \SI{5,5}{\V} eingestellt und mit dem Multimeter überprüft. Der Funktionsgenerator wurde auf eine Frequenz von \SI{1}{\MHz}, einen Highpegel von \SI{5,5}{\V} und einen Lowpegel von \SI{0}{\V} eingestellt.
+
+$$ t(5,5\text{V}) = t(4.5\text{V}) + \left(t(4.5\text{V})-t(4.5\text{V})\right)\cdot(6\text{V}-4.5\text{V})$$
+
+
+\printbibliography
+\end{document}
