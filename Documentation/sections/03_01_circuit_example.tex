@@ -1,0 +1,17 @@
+\subsection{Circuit Example}
+
+\begin{figure} [!htb]
+\begin{center}
+\begin{circuitikz}
+  \draw
+  (0,0) to[battery1, l=$V_s$] (0,3)
+        to[R, l=$R_1$] (3,3)
+        to[C, l=$C_1$] (3,0)
+        -- (0,0);
+\end{circuitikz}
+\end{center}
+\caption{Some kind of circuit.}
+\label{fig:circuit}
+\end{figure}
+
+This line is referencing the circuit in figure \ref{fig:circuit} right above.

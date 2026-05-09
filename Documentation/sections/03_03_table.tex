@@ -1,0 +1,20 @@
+\subsection{Table Example}
+This is how you can include a table:
+
+\begin{table}[!htb] %alternatively [H] for forcing "here"
+\centering
+\begin{tabular}{c c c c}
+\hline
+{$t_{\mathrm{pLH}}$ bei \qty{2}{\volt}} &
+{$t_{\mathrm{pHL}}$ bei \qty{2}{\volt}} &
+{$t_r$ bei \qty{2}{\volt}} &
+{$t_f$ bei \qty{2}{\volt}} \\
+\hline
+\qty{258,6}{\ns} & \qty{257,8}{\ns} & \qty{17,2}{\ns} & \qty{19,1}{\ns} \\
+\hline
+\end{tabular}
+\caption{Messwerte der Verzögerungszeit bei \qty{2}{\volt}}
+\label{tab:messwerte2v}
+\end{table}
+
+This line is just to show quoting table \ref{tab:messwerte2v}.
