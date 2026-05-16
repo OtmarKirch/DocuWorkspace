@@ -13,7 +13,7 @@ If you want to utilize the jupyter notebook, your IDE needs to able to process .
 
 This repository is organized into three main work areas:
 
-- `Data/`: all collected material (raw files, pictures, tables, processed datasets)
+- `Data/`: all collected material (raw files, pictures, tables, processed datasets, literature)
 - `Analysis/`: Jupyter notebooks and exported analysis outputs
 - `Documentation/`: LaTeX report and bibliography
 

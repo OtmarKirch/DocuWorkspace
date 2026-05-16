@@ -1,16 +1,16 @@
 % !TeX program = xelatex
 \documentclass[paper=a4,oneside,abstract,parskip=half]{scrartcl}
 
-\usepackage[T1]{fontenc}
 \usepackage[ngerman]{babel}
 \usepackage{graphicx}
 \usepackage{csquotes}
 \usepackage{booktabs}
+\usepackage{makecell}
 \usepackage{siunitx}
 \sisetup{separate-uncertainty = true,locale=DE}
 \usepackage{float}
 \usepackage{placeins}
-\usepackage{xcolor}
+\usepackage[table]{xcolor}
 \definecolor{mygreen}{RGB}{34,139,34}
 \usepackage{amsmath}
 \usepackage{circuitikz}
@@ -35,8 +35,8 @@ autolang=other,
 
 \addbibresource{bib/myLibrary.bib}
 
-\title{Verzögerungszeit eines 74HC00 NAND Gatters}
-\subject{Messbericht}
+\title{Your Report Name}
+\subject{Your Subject}
 \titlehead{}
 \author{Your name and everybody else}
 \date{Messung: 9. und 16. April 2026 / Bericht: 20. April 2026}
