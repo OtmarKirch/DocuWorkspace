@@ -25,6 +25,25 @@ This repository is organized into three main work areas:
 - Export notebook tables (CSV/LaTeX) to `Analysis/exports/tables/`
 - Reference exported figures directly from LaTeX via `\graphicspath`
 
+### VS Code or Codium
+If you are using VS Code or Codium you can use the setup suggestion in `/01_setup_suggestion/vscode`. Create a folder `.vscode`at the Workspace root level and copy the files to that folder.
+
+With the `task.json` file, you can use your default build shortcut (Cmd+Shift+b on Mac) to build the project in the build folder with a nice clean up beforehand, all automated for your convenience. Otherwise, use the build cli command as described below in [Build Latex](#build-latex)
+
+### Setup Python Virtual Environment
+
+To use the Jupyter notebook, it is required to have Python3 installed. It is recommended to use a virtual environment and install the required packages there. You can run the the script in `/01_setup_suggestion/python_venv/setup-python.sh` to have a fully automated installation of the virtual environment or do it manually. If you do it manually, make sure to put the `.venv` folder at the root of the workspace. For full functionality in the notebook, install the following:
+
+- Python3
+- virtual environment (.venv)
+- numpy
+- sympy
+- Matplotlib
+- pandas
+- Jinja2
+
+When you run the notebook, your IDE will ask you which Python to use. Select the virtual environment if you have it installed.
+
 ### Build LaTeX
 
 From `Documentation/`:

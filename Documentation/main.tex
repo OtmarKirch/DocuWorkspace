@@ -13,7 +13,6 @@
 \usepackage[table]{xcolor}
 \definecolor{mygreen}{RGB}{34,139,34}
 \usepackage{amsmath}
-\usepackage{circuitikz}
 \usepackage[backend=biber,
 date=long,
 style=iso-numeric,
@@ -44,6 +43,7 @@ autolang=other,
 \begin{document}
 \shorthandoff{"}
 \maketitle
+\tableofcontents
 \begin{abstract}
 \noindent 
 
@@ -51,14 +51,50 @@ autolang=other,
 
 \end{abstract}
 
+\FloatBarrier
+
 \include{sections/01_introduction.tex}
 
-\include{sections/02_method.tex}
+\section{Messung der Verzögerungszeit}
+Die Verzögerungszeit wird zwischen Eingang und Ausgang der Schaltung bei 50 Prozent des Highpegels gemessen. Der Highpegel am Eingang wird auf die Betriebsspannung gesetzt. 
 
-\input{sections/03_00_examples.tex}
-\input{sections/03_01_circuit_example.tex}
-\input{sections/03_02_figure_example.tex}
-\input{sections/03_03_table.tex}
+\begin{figure}[!htb]
+\begin{center}
+\includegraphics[width=0.5\textwidth]{
+Verzoegerungszeit.png
+}
+\end{center}
+\caption{Definition der Verzögerungszeiten aus dem Datenblatt des IC \protect\cite[Figure 7-2]{SNx4HC00}}
+\label{fig:messprinzip}
+\end{figure}
+In Abbildung \ref{fig:messprinzip} aus dem Datenblatt ist dargestellt wie die Verzögerungszeiten $t_{\textrm{pLH}}$ und $t_{\textrm{pHL}}$ definiert sind \cite[Figure 7-2]{SNx4HC00}.
+\FloatBarrier
+
+\begin{table}[H]
+\centering
+\begin{tabular}{S S S S}
+\hline
+{$t_{\mathrm{pLH}}$ bei \SI{2}{\volt}} &
+{$t_{\mathrm{pHL}}$ bei \SI{2}{\volt}} &
+{$t_r$ bei \SI{2}{\volt}} &
+{$t_f$ bei \SI{2}{\volt}} \\
+\hline
+\SI{258,6}{\ns} & \SI{257,8}{\ns} & \SI{17,2}{\ns} & \SI{19,1}{\ns} \\
+\hline
+\end{tabular}
+\caption{Messwerte der Verzögerungszeit bei \SI{2}{\volt}}
+\label{tab:messwerte2v}
+\end{table}
+
+\newpage
+
+\section{Messung mit 5,5 Volt Betriebsspannung}
+\FloatBarrier
+
+Die Betriebsspannung wurde auf \SI{5,5}{\V} eingestellt und mit dem Multimeter überprüft. Der Funktionsgenerator wurde auf eine Frequenz von \SI{1}{\MHz}, einen Highpegel von \SI{5,5}{\V} und einen Lowpegel von \SI{0}{\V} eingestellt.
+
+$$ t(5,5\text{V}) = t(4.5\text{V}) + \left(t(4.5\text{V})-t(4.5\text{V})\right)\cdot(6\text{V}-4.5\text{V})$$
+
 
 \printbibliography
 \end{document}
