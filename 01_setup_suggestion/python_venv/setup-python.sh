@@ -1,21 +1,37 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-DEFAULT_VENV=".venv"
-# Determine script directory and repository root (parent of this script folder)
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 
-# If user provided no argument, create venv under the repository root.
+# --- Workspace root detection (searches for .git or README.md upwards) ---
+find_workspace_root() {
+	local dir="$PWD"
+	while [[ "$dir" != "/" ]]; do
+		if [[ -d "$dir/.git" || -f "$dir/README.md" ]]; then
+			echo "$dir"
+			return 0
+		fi
+		dir="$(dirname "$dir")"
+	done
+	return 1
+}
+
+DEFAULT_VENV=".venv"
+WORKSPACE_ROOT="$(find_workspace_root)"
+if [[ -z "$WORKSPACE_ROOT" ]]; then
+	echo "Error: Could not find workspace root (.git or README.md) upwards from $PWD" >&2
+	exit 1
+fi
+
+# If user provided no argument, create venv under the workspace root.
 # If an argument is provided and it's absolute, use it as given. If relative,
-# treat it as relative to the repository root.
+# treat it as relative to the workspace root.
 if [[ -z "${1:-}" ]]; then
-	VENV_DIR="$REPO_ROOT/$DEFAULT_VENV"
+	VENV_DIR="$WORKSPACE_ROOT/$DEFAULT_VENV"
 else
 	if [[ "${1:0:1}" == "/" ]]; then
 		VENV_DIR="$1"
 	else
-		VENV_DIR="$REPO_ROOT/${1}"
+		VENV_DIR="$WORKSPACE_ROOT/${1}"
 	fi
 fi
 
