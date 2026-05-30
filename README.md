@@ -79,3 +79,17 @@ When you build the project for `Documentation/main.tex`, this is the effective f
 Flow summary:
 
 Build -> latexmk -> xelatex -> (optional biber) -> xelatex pass(es) -> xdvipdfmx -> main.pdf
+
+## Working in the DocuWorkspace
+
+### Jupyter Notebook
+
+You can store and process all your collected dat in Jupyter Notebook. You can define any number of analysis.
+
+#### Packages
+
+In the standard setup, the most common packages for data analysis are already included and should be available by installing the [virtual environment](#setup-python-virtual-environmentSetup).
+
+#### Functionality
+
+There are functions and examples already defined which give you a template for your own analysis. Some of them are general, so they should come in handy in any Latex project for data analysis documentation. Others are born from specific projects which will have a very restricted usage. Feel free to add delete at your pleasure.
